@@ -1,0 +1,6 @@
+@startuml
+class Beautifier <<static>> {
+    + {static} BeautifyType(t:Type, isFull:bool) : string
+    + {static} ToMarkdownMethodInfo(methodInfo:MethodInfo) : string
+}
+@enduml

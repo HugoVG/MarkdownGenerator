@@ -1,0 +1,12 @@
+@startuml
+class MarkdownableType {
+    + Namespace : string <<get>>
+    + Name : string <<get>>
+    + BeautifyName : string <<get>>
+    + MarkdownableType(type:Type, commentLookup:ILookup<string, XmlDocumentComment>)
+    + <<override>> ToString() : string
+}
+class MarkdownGenerator <<static>> {
+    + {static} Load(dllPath:string, namespaceMatch:string) : MarkdownableType[]
+}
+@enduml

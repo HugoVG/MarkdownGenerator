@@ -54,7 +54,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(374, 500);
+            this.ClientSize = new System.Drawing.Size(322, 398);
             this.Controls.Add(this.Worked);
             this.Controls.Add(this.SelectFile);
             this.Name = "Form1";
@@ -69,5 +69,6 @@
 
         private Button SelectFile;
         private Label Worked;
+        private PictureBox pictureBox1;
     }
 }

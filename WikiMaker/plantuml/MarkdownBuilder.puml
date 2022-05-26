@@ -1,0 +1,20 @@
+@startuml
+class MarkdownBuilder {
+    + {static} MarkdownCodeQuote(code:string) : string
+    + Append(text:string) : void
+    + AppendLine() : void
+    + AppendLine(text:string) : void
+    + Header(level:int, text:string) : void
+    + HeaderWithCode(level:int, code:string) : void
+    + HeaderWithLink(level:int, text:string, url:string) : void
+    + Link(text:string, url:string) : void
+    + Image(altText:string, imageUrl:string) : void
+    + Code(language:string, code:string) : void
+    + CodeQuote(code:string) : void
+    + Table(headers:string[], items:IEnumerable<string[]>) : void
+    + List(text:string) : void
+    + ListLink(text:string, url:string) : void
+    + <<override>> ToString() : string
+}
+MarkdownBuilder o-> "sb" StringBuilder
+@enduml

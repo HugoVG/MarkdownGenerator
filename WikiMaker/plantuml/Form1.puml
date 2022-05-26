@@ -1,0 +1,6 @@
+@startuml
+class Form1 <<partial>> {
+    + Form1()
+}
+Form <|-- Form1
+@enduml

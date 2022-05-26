@@ -25,6 +25,8 @@ namespace WikiMaker
                 Debug.WriteLine(target);
             }
             MarkdownableType[] types = MarkdownGenerator.Load(target, namespaceMatch);
+            foreach (MarkdownableType type in types)
+                Console.WriteLine(type.Name);
             Debug.WriteLine("28");
             // Home Markdown Builder
             MarkdownBuilder homeBuilder = new MarkdownBuilder();
@@ -34,17 +36,15 @@ namespace WikiMaker
             bool working = false;
             foreach (IGrouping<string, MarkdownableType> g in types.GroupBy(x => x.Namespace).OrderBy(x => x.Key))
             {
-                working = true;
-                if (Directory.Exists(dest))
-                {
-                    Directory.Delete(dest, true);
-                }
-                Directory.CreateDirectory(dest);
 
-                Debug.WriteLine("40");
+                working = true;
+                if (!Directory.Exists(dest))
+                {
+                    Directory.CreateDirectory(dest);
+                }
+
                 homeBuilder.HeaderWithLink(2, g.Key, g.Key);
                 homeBuilder.AppendLine();
-                Debug.WriteLine("43");
                 StringBuilder sb = new StringBuilder();
                 foreach (MarkdownableType item in g.OrderBy(x => x.Name))
                 {
@@ -52,7 +52,6 @@ namespace WikiMaker
                     Debug.WriteLine("48");
                     sb.Append(item.ToString());
                 }
-                Debug.WriteLine("51");
                 File.WriteAllText(Path.Combine(dest, g.Key + ".md"), sb.ToString());
                 homeBuilder.AppendLine();
             }
@@ -63,9 +62,7 @@ namespace WikiMaker
             else
             {
                 Process.Start("explorer.exe", Path.Combine(Environment.CurrentDirectory, "docs"));
-            }
-            
-            Debug.WriteLine("55");
+            }            
             // Gen Home
             File.WriteAllText(Path.Combine(dest, "Home.md"), homeBuilder.ToString());
             Console.WriteLine(size); // <-- Shows file size in debugging mode.

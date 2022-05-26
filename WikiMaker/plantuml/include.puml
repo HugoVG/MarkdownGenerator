@@ -1,0 +1,18 @@
+@startuml
+!include .\\Beautifier.puml
+!include .\\Form1.puml
+!include .\\Form1.Designer.puml
+!include .\\MarkdownBuilder.puml
+!include .\\MarkdownGenerator.puml
+!include .\\Program.puml
+!include .\\VSDocParser.puml
+!include .\\obj\Debug\net6.0-windows\.NETCoreApp,Version=v6.0.AssemblyAttributes.puml
+!include .\\obj\Debug\net6.0-windows\WikiMaker.AssemblyInfo.puml
+!include .\\obj\Debug\net6.0-windows\WikiMaker.GlobalUsings.g.puml
+!include .\\obj\Release\net6.0-windows\.NETCoreApp,Version=v6.0.AssemblyAttributes.puml
+!include .\\obj\Release\net6.0-windows\WikiMaker.AssemblyInfo.puml
+!include .\\obj\Release\net6.0-windows\WikiMaker.GlobalUsings.g.puml
+!include .\\obj\Release\net6.0-windows\win-x64\.NETCoreApp,Version=v6.0.AssemblyAttributes.puml
+!include .\\obj\Release\net6.0-windows\win-x64\WikiMaker.AssemblyInfo.puml
+!include .\\obj\Release\net6.0-windows\win-x64\WikiMaker.GlobalUsings.g.puml
+@enduml

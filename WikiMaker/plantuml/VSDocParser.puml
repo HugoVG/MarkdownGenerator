@@ -1,0 +1,33 @@
+@startuml
+enum MemberType {
+    Field= 'F',
+    Property= 'P',
+    Type= 'T',
+    Event= 'E',
+    Method= 'M',
+    None= 0,
+}
+class XmlDocumentComment {
+    + ClassName : string <<get>> <<set>>
+    + MemberName : string <<get>> <<set>>
+    + Summary : string <<get>> <<set>>
+    + Remarks : string <<get>> <<set>>
+    + Returns : string <<get>> <<set>>
+    + <<override>> ToString() : string
+}
+class VSDocParser <<static>> {
+    + {static} ParseXmlComment(xDocument:XDocument) : XmlDocumentComment[]
+}
+class "Dictionary`2"<T1,T2> {
+}
+class "Item1EqualityCompaerer`2"<T1,T2> {
+    + <<override>> Equals(x:Tuple<T1, T2>, y:Tuple<T1, T2>) : bool
+    + <<override>> GetHashCode(obj:Tuple<T1, T2>) : int
+}
+class "EqualityComparer`1"<T> {
+}
+XmlDocumentComment --> "MemberType" MemberType
+XmlDocumentComment --> "Parameters<string,string>" "Dictionary`2"
+VSDocParser +-- "Item1EqualityCompaerer`2"
+"EqualityComparer`1" "<Tuple<T1, T2>>" <|-- "Item1EqualityCompaerer`2"
+@enduml
